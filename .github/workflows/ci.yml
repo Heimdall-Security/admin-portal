@@ -52,7 +52,7 @@ jobs:
         with:
           name: admin-portal.tar.gz
       - name: Extract Artifacts
-        run: tar -xzvf admin-portal.tar.gz
+        run: tar -xzvf admin-portal.tar.gz -C ./dist
       - name: Stat Dir
         run: ls -R
       - name: Login to Docker Hub
@@ -83,3 +83,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{steps.docker-metadata-action.outputs.tags}}
           push: true
+          context: .
