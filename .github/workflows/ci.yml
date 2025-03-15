@@ -38,7 +38,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Create Distribution Directory
-        run: sudo mkdir -r /dist/administration-portal/browser
+        run: sudo mkdir -p /dist/administration-portal/browser
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
