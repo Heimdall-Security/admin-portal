@@ -32,6 +32,8 @@ jobs:
           path: dist/administration-portal/browser/*
   docker-build:
     runs-on: ubuntu-latest
+    needs:
+      - angular-build
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -66,5 +68,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           platforms: 'all'
-          tags: {{steps.docker-metadata-action.outputs.tags}}
+          tags: ${{steps.docker-metadata-action.outputs.tags}}
           push: true
